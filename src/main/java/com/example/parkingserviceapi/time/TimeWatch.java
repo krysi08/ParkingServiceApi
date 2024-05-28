@@ -11,7 +11,7 @@ public class TimeWatch {
     public void start() {
         this.startTime = System.currentTimeMillis();
         this.running = true;
-        System.out.println("The time has been started");
+        System.out.println("The time starts");
     }
 
 
