@@ -22,6 +22,7 @@ public class TimeWatch {
         this.running = false;
         System.out.println("Parking time was stopped at: " + this.stopTime);
     }
+}
 /*
  not resolved problem how to convert Date to int yet
     public long getElapsedTimeSecs() {
