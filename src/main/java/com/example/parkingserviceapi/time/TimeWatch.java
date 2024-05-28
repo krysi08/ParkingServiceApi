@@ -34,9 +34,3 @@ public class TimeWatch {
         return elapsed;
     }
 */
-    public static void main(String[] args) {
-        TimeWatch tw = new TimeWatch();
-        tw.start();
-        tw.stop();
-    }
-}
