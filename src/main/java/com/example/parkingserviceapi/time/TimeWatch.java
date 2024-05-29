@@ -1,8 +1,10 @@
 package com.example.parkingserviceapi.time;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 
 public class TimeWatch {
@@ -22,16 +24,17 @@ public class TimeWatch {
         this.running = false;
         System.out.println("Parking time was stopped at: " + this.stopTime);
     }
-}
-/*
- not resolved problem how to convert Date to int yet
-    public long getElapsedTimeSecs() {
-        long elapsed;
-        if (running) {
-            elapsed = ((running - startTime) / 1000);
-        } else {
-            elapsed = ((stopTime - startTime) / 1000);
-        }
-        return elapsed;
+
+    public void settleVariance() {
+
+        Instant instant1 = Instant.parse(startTime.toString());
+        Instant instant2 = Instant.parse(stopTime.toString());
+
+        Duration duration = Duration.between(instant1, instant2);
+
+        System.out.println(duration.toDays());
+        System.out.println(duration.toHours());
+        System.out.println(duration.toMinutes());
     }
-*/
+}
+
