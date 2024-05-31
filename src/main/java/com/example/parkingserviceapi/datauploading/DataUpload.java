@@ -16,10 +16,5 @@ public class DataUpload {
         String plates = in.nextLine();
 
         dataUploads.add(plates);
-        ListIterator iterator = dataUploads.listIterator(dataUploads.size());
-        {
-            while (iterator.hasNext())
-                System.out.println(iterator.next());
-        }
     }
 }
