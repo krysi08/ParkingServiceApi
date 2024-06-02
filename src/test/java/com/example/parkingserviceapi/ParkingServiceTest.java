@@ -3,9 +3,7 @@ package com.example.parkingserviceapi;
 import com.example.parkingserviceapi.color.Color;
 import com.example.parkingserviceapi.entity.Car;
 import com.example.parkingserviceapi.manager.ParkingServiceManager;
-import org.apache.juli.logging.Log;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
