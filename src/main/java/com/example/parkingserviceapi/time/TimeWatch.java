@@ -5,8 +5,6 @@ import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
-
-
 public class TimeWatch {
     private Date startTime;
     private Date stopTime;

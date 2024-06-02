@@ -7,11 +7,6 @@ import java.util.Timer;
 
 public class PriceList {
 
-    public static void main(String[] args) {
-
-        PriceList list = new PriceList();
-    }
-
     public void settleCostsParking(double timeParking) {
         if (timeParking >= MINIMUM_PARKING_TIME_IN_MINUTES && timeParking <= MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT) {
             System.out.println("Please pay off 5EUR");

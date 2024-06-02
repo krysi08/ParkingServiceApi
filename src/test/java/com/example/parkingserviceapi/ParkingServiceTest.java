@@ -14,19 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParkingServiceTest {
 
-    // Check out to make it work:
-    // https://www.baeldung.com/spring-testing-separate-data-source -> You need test repository here
-    private final ParkingServiceManager parkingServiceManager = new ParkingServiceManager();
+        private final ParkingServiceManager parkingServiceManager = new ParkingServiceManager();
 
     @Test
     public void shouldAddSingleCar() {
-        // given
         Car car = new Car("123", "Corsa", "Opel", Color.WHITE);
 
-        // when
         parkingServiceManager.save(car);
-
-        // then
+        
         List<Car> cars = new ArrayList<>();
         parkingServiceManager.findAll().forEach(cars::add);
         assertEquals(cars.size(), 1);
