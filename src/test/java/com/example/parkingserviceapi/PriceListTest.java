@@ -29,55 +29,55 @@ public class PriceListTest {
     @Test
     public void settle_parking_cost()
     {
-        String requiredFee = "Please pay off 5EUR";
+        String requiredFee1 = "Please pay off 5EUR";
 
         priceList.settleCostsParking(60);
         assumingThat(
-                requiredFee.equals("Please pay off 5EUR"),
+                requiredFee1.equals("Please pay off 5EUR"),
                 () -> assertEquals(60, 60)
         );
     }
     @Test
     public void settle_parking_cost_medium()
     {
-        String requiredFee = "You have to pay off" + " " + " " + "EUR";
+        String requiredFee2 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(61);
         assumingThat(
-                requiredFee.equals("You have to pay off" + " " + " " + "EUR"),
+                requiredFee2.equals("You have to pay off" + " " + " " + "EUR"),
                 () -> assertEquals(61, 61)
         );
     }
     @Test
     public void settle_parking_cost_medium_grather()
     {
-        String requiredFee = "You have to pay off" + " " + " " + "EUR";
+        String requiredFee3 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(240);
         assumingThat(
-                requiredFee.equals("You have to pay off" + " " + " " + "EUR"),
+                requiredFee3.equals("You have to pay off" + " " + " " + "EUR"),
                 () -> assertEquals(240, 240)
         );
     }
     @Test
     public void settle_parking_cost_discount()
     {
-        String requiredFee = "You have to pay off" + " " + " " + "EUR";
+        String requiredFee4 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(241);
         assumingThat(
-                requiredFee.equals("You have to pay off" + " " + " " + "EUR"),
+                requiredFee4.equals("You have to pay off" + " " + " " + "EUR"),
                 () -> assertEquals(241, 241)
         );
     }
     @Test
     public void settle_parking_cost_no_fees()
     {
-        String requiredFee = "No fees";
+        String requiredFee5 = "No fees";
 
         priceList.settleCostsParking(5);
         assumingThat(
-                requiredFee.equals("No fees"),
+                requiredFee5.equals("No fees"),
                 () -> assertEquals(5, 5)
         );
     }
