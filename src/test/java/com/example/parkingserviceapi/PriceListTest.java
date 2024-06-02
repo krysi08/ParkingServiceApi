@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 @SpringBootTest
@@ -15,9 +16,9 @@ public class PriceListTest {
     public PriceListTest(PriceList priceList) {
         this.priceList = priceList;
     }
+
     @Test
-    public void settle_parking_cost_the_cheapest_one()
-    {
+    public void settle_parking_cost_the_cheapest_one() {
         String requiredFee = "Please pay off 5EUR";
 
         priceList.settleCostsParking(10);
@@ -26,9 +27,9 @@ public class PriceListTest {
                 () -> assertEquals(10, 10)
         );
     }
+
     @Test
-    public void settle_parking_cost()
-    {
+    public void settle_parking_cost() {
         String requiredFee1 = "Please pay off 5EUR";
 
         priceList.settleCostsParking(60);
@@ -37,9 +38,9 @@ public class PriceListTest {
                 () -> assertEquals(60, 60)
         );
     }
+
     @Test
-    public void settle_parking_cost_medium()
-    {
+    public void settle_parking_cost_medium() {
         String requiredFee2 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(61);
@@ -48,9 +49,9 @@ public class PriceListTest {
                 () -> assertEquals(61, 61)
         );
     }
+
     @Test
-    public void settle_parking_cost_medium_grather()
-    {
+    public void settle_parking_cost_medium_grather() {
         String requiredFee3 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(240);
@@ -59,9 +60,9 @@ public class PriceListTest {
                 () -> assertEquals(240, 240)
         );
     }
+
     @Test
-    public void settle_parking_cost_discount()
-    {
+    public void settle_parking_cost_discount() {
         String requiredFee4 = "You have to pay off" + " " + " " + "EUR";
 
         priceList.settleCostsParking(241);
@@ -70,9 +71,9 @@ public class PriceListTest {
                 () -> assertEquals(241, 241)
         );
     }
+
     @Test
-    public void settle_parking_cost_no_fees()
-    {
+    public void settle_parking_cost_no_fees() {
         String requiredFee5 = "No fees";
 
         priceList.settleCostsParking(5);
@@ -81,5 +82,12 @@ public class PriceListTest {
                 () -> assertEquals(5, 5)
         );
     }
-
+    @Test
+    void assertThrowsException() {
+        String requiredFee6 = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+                    Integer.valueOf(requiredFee6);
+                }
+        );
+    }
 }
