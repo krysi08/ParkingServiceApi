@@ -1,10 +1,5 @@
 package com.example.parkingserviceapi.fee;
 
-import com.example.parkingserviceapi.time.TimeWatch;
-
-import java.time.Duration;
-import java.util.Timer;
-
 public class PriceList {
 
     public void settleCostsParking(double timeParking) {
