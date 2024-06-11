@@ -2,18 +2,17 @@ package com.example.parkingserviceapi.fee;
 
 public class PriceList {
 
-    public void settleCostsParking(double timeParking) {
+    public double settleCostsParking(double timeParking) {
         if (timeParking >= MINIMUM_PARKING_TIME_IN_MINUTES && timeParking <= MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT) {
-            System.out.println("Please pay off 5EUR");
+            return 5;
         } else if (timeParking > MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT && timeParking <= MAXIMUM_PARKING_TIME_IN_MINUTES) {
             double valueCosts = timeParking * PRICE_FEE / MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT;
-            System.out.println("You have to pay off" + " " + valueCosts + " " + "EUR");
+            return valueCosts;
         } else if (timeParking > MAXIMUM_PARKING_TIME_IN_MINUTES) {
-            double discountCosts = (timeParking * DISCOUNT_FEE) /MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT;
-            System.out.println("You have to pay off" + " " + discountCosts + " " + "EUR");
-        } else {
-            System.out.println("No fees");
+            double discountCosts = (timeParking * DISCOUNT_FEE) / MAXIMUM_PARKING_TIME_IN_MINUTES_DISCOUNT;
+            return discountCosts;
         }
+        return 0;
     }
 
     static int MINIMUM_PARKING_TIME_IN_MINUTES = 10;
