@@ -1,14 +1,14 @@
-package com.example.parkingserviceapi.manager;
+package com.example.parkingserviceapi;
 
 import com.example.parkingserviceapi.color.Color;
 import com.example.parkingserviceapi.entity.Car;
+import com.example.parkingserviceapi.manager.ParkingServiceManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.BDDMockito;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.*;
@@ -70,7 +70,7 @@ class ParkingServiceManagerTests {
     }
 
     @Test
-   public void should_save_cars() {
+    public void should_save_cars() {
         ParkingServiceManager parkingServiceManager = mock(ParkingServiceManager.class);
         BDDMockito.given(parkingServiceManager.save(Mockito.any(Car.class))).willReturn(new Car("1A","Opel","Insignia", Color.BLACK));
 
