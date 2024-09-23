@@ -1,14 +1,15 @@
 package com.example.parkingserviceapi.manager;
 
 import com.example.parkingserviceapi.color.Color;
-import com.example.parkingserviceapi.entity.Car;
 import com.example.parkingserviceapi.dao.CarRepo;
+import com.example.parkingserviceapi.entity.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ParkingServiceManager {
@@ -20,18 +21,18 @@ public class ParkingServiceManager {
         this.carRepo = carRepo;
     }
 
-    public ParkingServiceManager() {
-
+    public List<Car> findById(Long id)
+    {
+        List<Car> cars = new ArrayList<>();
+                carRepo.findById(id).ifPresent(cars::add);
+        return cars;
     }
 
-    public Optional<Car> findById(Long id)
+    public List<Car> findAll()
     {
-        return carRepo.findById(id);
-    }
-
-    public Iterable<Car> findAll()
-    {
-        return carRepo.findAll();
+        List<Car> cars2 = new ArrayList<>();
+        carRepo.findAll().iterator().forEachRemaining(cars2::add);
+        return cars2;
     }
 
     public Car save(Car car)
@@ -40,10 +41,11 @@ public class ParkingServiceManager {
     }
 
     public void deletebyId(Long id) {
-        carRepo.deleteById(id);
+    carRepo.deleteById(id);
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+
+@EventListener(ApplicationReadyEvent.class)
     public void addDB()
     {
         save((new Car("1A","Opel","Insignia", Color.BLACK)));

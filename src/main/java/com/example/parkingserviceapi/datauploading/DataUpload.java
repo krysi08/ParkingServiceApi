@@ -3,7 +3,6 @@ package com.example.parkingserviceapi.datauploading;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class DataUpload {

@@ -1,47 +1,48 @@
 package com.example.parkingserviceapi.api;
 
 import com.example.parkingserviceapi.entity.Car;
-import com.example.parkingserviceapi.manager.ParkingServiceManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/car")
 public class RestCarController {
 
 
-    private ParkingServiceManager listCars;
+    private List<Car> Carlist;
 
-    @Autowired
-    public RestCarController(ParkingServiceManager listCars) {
-        this.listCars = listCars;
+
+    public RestCarController() {
+        Carlist = new ArrayList<>();
     }
 
     @GetMapping("/all")
-    public Iterable<Car> getAll() {
-        return listCars.findAll();
+    public List<Car> getAll() {
+        return Carlist;
     }
 
     @GetMapping
-    public Optional<Car> getById(@RequestParam Long id) {
-        return listCars.findById(id);
+    public Car getById(@RequestParam int index) {
+       Optional<Car> firstcar = Carlist.stream().
+               filter(ind -> ind.getId() == index).findFirst();
+       return firstcar.get();
     }
 
     @PostMapping
-    public Car addCar(@RequestBody Car car) {
-        return listCars.save(car);
+    public boolean addCar(@RequestBody Car car) {
+        return Carlist.add(car);
     }
 
     @PutMapping
-    public Car updateCar(@RequestBody Car car) {
-        return listCars.save(car);
+    public boolean updateCar(@RequestBody Car car) {
+        return Carlist.add(car);
     }
 
     @DeleteMapping
-    public void deleteCar(@RequestBody Long id) {
-        listCars.deletebyId(id);
+    public boolean deleteCar(@RequestParam int index) {
+       return Carlist.removeIf(ind -> ind.getId() == index);
     }
 }

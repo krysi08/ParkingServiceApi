@@ -1,6 +1,7 @@
 package com.example.parkingserviceapi.entity;
 
 import com.example.parkingserviceapi.color.Color;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,8 +27,15 @@ public class Car {
         this.color = color;
     }
 
-    public Car() {
+    public Car(Long id, String IDname, String model, String manufacture, Color color) {
+        this.id = id;
+        this.IDname = IDname;
+        this.model = model;
+        this.manufacture = manufacture;
+        this.color = color;
     }
+
+    public Car() {}
 
     public Long getId() {
         return id;
