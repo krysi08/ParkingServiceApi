@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 
 class ParkingServiceManagerTests {
 
-
+//    test
 
     @Test
     public void should_findAll() {
@@ -27,6 +27,7 @@ class ParkingServiceManagerTests {
 
         assertThat(cars).hasSize(2);
     }
+
 
     @Test
     public void should_findAll_list_does_not_exist() {
