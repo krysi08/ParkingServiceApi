@@ -16,7 +16,6 @@ import static org.mockito.Mockito.*;
 
 class ParkingServiceManagerTests {
 
-//    test
 
     @Test
     public void should_findAll() {
